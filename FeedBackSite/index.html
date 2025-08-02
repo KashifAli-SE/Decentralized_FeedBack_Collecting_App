@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback DApp</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>📝 Feedback DApp</h1>
+            <div class="wallet-section">
+                <button id="connectWalletBtn" class="connect-btn">🔗 Connect Wallet</button>
+                <div id="walletAddress" class="wallet-address"></div>
+            </div>
+        </header>
+
+        <div class="role-selector">
+            <button class="role-btn active" data-role="student">👨‍🎓 Student</button>
+            <button class="role-btn" data-role="teacher">👨‍🏫 Teacher</button>
+            <button class="role-btn" data-role="admin">👨‍💼 Admin</button>
+        </div>
+
+        <!-- Student Section -->
+        <div id="student-section" class="section active">
+            <h2>👨‍🎓 Student Dashboard</h2>
+            <div class="card">
+                <h3>Register as Student</h3>
+                <p>Register your address to participate in feedback system</p>
+                <button id="registerStudentBtn" class="action-btn">Register Me</button>
+            </div>
+
+            <div class="card">
+                <h3>Give Feedback to Teacher</h3>
+                <div class="input-group">
+                    <label>Teacher Address:</label>
+                    <input type="text" id="feedbackTeacherAddress" placeholder="0x...">
+                </div>
+                <div class="input-group">
+                    <label>Your Feedback:</label>
+                    <textarea id="feedbackText" placeholder="Write your feedback here..."></textarea>
+                </div>
+                <button id="giveFeedbackBtn" class="action-btn">Submit Feedback</button>
+            </div>
+        </div>
+
+        <!-- Teacher Section -->
+        <div id="teacher-section" class="section">
+            <h2>👨‍🏫 Teacher Dashboard</h2>
+            <div class="card">
+                <h3>View My Feedbacks</h3>
+                <p>View all feedbacks given to you by students</p>
+                <button id="viewMyFeedbacksBtn" class="action-btn">View My Feedbacks</button>
+                <div id="teacherFeedbackList" class="feedback-list"></div>
+            </div>
+        </div>
+
+        <!-- Admin Section -->
+        <div id="admin-section" class="section">
+            <h2>👨‍💼 Admin Dashboard</h2>
+
+            <div class="card">
+                <h3>Add Teacher</h3>
+                <div class="input-group">
+                    <label>Teacher Address:</label>
+                    <input type="text" id="addTeacherAddress" placeholder="0x...">
+                </div>
+                <button id="addTeacherBtn" class="action-btn">Add Teacher</button>
+            </div>
+
+            <div class="card">
+                <h3>Remove Teacher</h3>
+                <div class="input-group">
+                    <label>Teacher Address:</label>
+                    <input type="text" id="removeTeacherAddress" placeholder="0x...">
+                </div>
+                <button id="removeTeacherBtn" class="action-btn">Remove Teacher</button>
+            </div>
+
+            <div class="card">
+                <h3>Control Feedback System</h3>
+                <div class="input-group">
+                    <label>Feedback State:</label>
+                    <select id="feedbackState">
+                        <option value="0">OPEN - Allow feedback collection</option>
+                        <option value="1">CLOSE - Stop feedback collection</option>
+                    </select>
+                </div>
+                <button id="setFeedbackStateBtn" class="action-btn">Update State</button>
+            </div>
+
+            <div class="card">
+                <h3>View Any Teacher's Feedbacks</h3>
+                <div class="input-group">
+                    <label>Teacher Address:</label>
+                    <input type="text" id="adminViewTeacherAddress" placeholder="0x...">
+                </div>
+                <button id="adminViewFeedbacksBtn" class="action-btn">View Feedbacks</button>
+                <div id="adminFeedbackList" class="feedback-list"></div>
+            </div>
+        </div>
+
+        <!-- Status Messages -->
+        <div id="statusMessage" class="status-message"></div>
+    </div>
+
+    <script type="module" src="app.js"></script>
+</body>
+
+</html>
